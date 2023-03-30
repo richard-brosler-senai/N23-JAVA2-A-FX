@@ -1,5 +1,6 @@
 package br.com.senaisp.bauru.richard.secao09.exemplo01;
 
+
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -9,6 +10,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
@@ -17,6 +20,14 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.TilePane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
+import javafx.scene.shape.StrokeLineCap;
+import javafx.scene.shape.StrokeLineJoin;
+import javafx.scene.shape.StrokeType;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontPosture;
+import javafx.scene.text.FontWeight;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class JavaFxMain extends Application {
@@ -38,9 +49,47 @@ public class JavaFxMain extends Application {
 	
 	private void adicionarComponentes(Parent root) {
 		HBox hbox = new HBox();
+		
 		Button btn01 = new Button("Diga Hello World!");
 		Button btn02 = new Button();
 		Button btn03 = new Button("33333");
+		
+		Rectangle rect = new Rectangle(200,200,Color.CYAN);
+		
+		Text text = new Text("Dorm 6:\n200");
+		
+		ImageView imgVw = new ImageView();
+		Image img = new Image("https://pbs.twimg.com/media/C4nRXI4WYAAej54.jpg");
+		//Dimensionando o visualizador para 100px X 100px
+		imgVw.setFitWidth(200);
+		imgVw.setFitHeight(200);
+		//Setando a imagem para o view
+		imgVw.setImage(img);
+		//Indicando que ele vai manter as proporções da imagem
+		imgVw.setPreserveRatio(true);
+		//Posicionando o imageview na tela
+		imgVw.setX(500);
+		imgVw.setY(200);
+		
+		//https://pbs.twimg.com/media/C4nRXI4WYAAej54.jpg
+		
+		text.setFill(Color.RED);
+		text.setX(350);
+		text.setY(250);
+		text.setFont(Font.font("Arial", FontWeight.BOLD,
+				FontPosture.REGULAR, 28));
+		text.setStroke(Color.BLACK);
+		text.setStrokeWidth(5);
+		//Colocando o contorno por fora da letra
+		text.setStrokeType(StrokeType.OUTSIDE);
+		//Mudando o formato do contorno para ficar contorno arredondado
+		text.setStrokeLineJoin(StrokeLineJoin.ROUND);
+		
+		rect.setX(100);
+		rect.setY(10);
+		
+		rect.setStroke(Color.ORANGE);
+		rect.setStrokeWidth(5);
 		
 		btn02.setText("222");
 		//Evento do click do botão
@@ -76,9 +125,9 @@ public class JavaFxMain extends Application {
 		
 		//Aqui estou testando se é Pane ou seus descendentes
 		if (root instanceof Pane) {
-			((Pane) root).getChildren().addAll(hbox);
+			((Pane) root).getChildren().addAll(hbox,rect,text,imgVw);
 		} else { //se não for Pane é Group
-			((Group) root).getChildren().addAll(hbox);
+			((Group) root).getChildren().addAll(hbox,rect,text,imgVw);
 		}
 	}
 
