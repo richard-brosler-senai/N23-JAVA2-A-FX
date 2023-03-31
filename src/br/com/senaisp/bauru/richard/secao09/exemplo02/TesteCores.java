@@ -20,20 +20,46 @@ public class TesteCores extends Application {
 		//Aqui vou adicionar os componentes
 		Rectangle rect = new Rectangle(20,20,200,100);
 		//Preenchendo com a cor branca          //X  Y  X  Y  propr
-		LinearGradient grad1 = new LinearGradient(0, 0, 1, 0, true, 
+		LinearGradient grad1 = new LinearGradient(0, 0, 1, 1, true, 
 				CycleMethod.NO_CYCLE, new Stop[]{
 						new Stop(0,Color.DODGERBLUE),
-						new Stop(1,Color.BLACK),
+						new Stop(1,Color.WHITE),
 				});
 		rect.setFill(grad1);
 		
 		Polygon star = new Polygon(
-				
+					300,200,
+					275,250,
+					225,250, 
+					250,300, //
+					225,350,
+					275,350,
+					300,400,
+					325,350,
+					375,350,
+					350,300, //
+					375,250,
+					325,250
+					
 				);
 		
+		Polygon triangulo = new Polygon(
+					700, 200,
+					450, 450,
+					700, 450
+				);
+		
+		LinearGradient grad2 = new LinearGradient(0, 0, 1, 0, true, 
+				CycleMethod.NO_CYCLE, new Stop[] {
+						new Stop(0,Color.AQUA),
+						new Stop(0.5,Color.YELLOW),
+						new Stop(1,Color.RED)
+				});
+		
+		triangulo.setFill(grad2);
 		star.setFill(Color.WHITE);
 		//Adiocionando o item ao nó root
-		root.getChildren().addAll(rect, star);
+		root.getChildren().addAll(rect, star, triangulo);
 		//Criando a scene
 		Scene scene = new Scene(root,800,600,Color.BLACK);
 		
