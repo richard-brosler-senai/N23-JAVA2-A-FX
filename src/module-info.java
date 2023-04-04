@@ -10,4 +10,6 @@ module projetoJavaFX {
 		javafx.graphics, javafx.controls, javafx.media, javafx.fxml;
 	opens br.com.senaisp.bauru.richard.secao09.exemplo03 to 
 	javafx.graphics, javafx.controls, javafx.media, javafx.fxml;
+	opens br.com.senaisp.bauru.richard.secao09.exemplo04 to 
+	javafx.graphics, javafx.controls, javafx.media, javafx.fxml;
 }
