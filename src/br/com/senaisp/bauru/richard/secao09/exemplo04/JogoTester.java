@@ -8,10 +8,18 @@ public class JogoTester extends Application {
 	@Override
 	public void start(Stage primeiraStage) throws Exception {
 		TelaJogo telaJogo = new TelaJogo();
+		TelaPrincipal telaPrincipal = new TelaPrincipal();
+		TelaMediaPlayer telaMediaPlayer = new TelaMediaPlayer();
+		ControladorScena controle = new ControladorScena();
+		//Adicionando o controle nas telas
+		telaJogo.setControle(controle);
+		telaMediaPlayer.setControle(controle);
 		
+		//A tela principal deve ser a última
+		telaPrincipal.setControle(controle);
 		
 		primeiraStage.setTitle("Jogo do Duke");
-		primeiraStage.setScene(telaJogo.getScena());
+		primeiraStage.setScene(telaPrincipal.getScena());
 		primeiraStage.show();
 	}
 
