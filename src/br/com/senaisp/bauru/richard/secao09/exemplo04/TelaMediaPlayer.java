@@ -9,6 +9,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
+import javafx.stage.Stage;
 
 public class TelaMediaPlayer extends VBox{
 	private Scene scena;
@@ -59,6 +60,20 @@ public class TelaMediaPlayer extends VBox{
 	}
 
 	private void adicionarEventos() {
+		btnPlay.setOnAction((evt)->{
+			tocadorMP4.play();
+		});
+		btnPause.setOnAction((evt)->{
+			tocadorMP4.pause();
+		});
+		btnStop.setOnAction((evt)->{
+			tocadorMP4.stop();
+		});
+		btnSair.setOnAction((evt)->{
+			Stage janela = (Stage)this.getScene().getWindow();
+			tocadorMP4.stop();
+			janela.setScene(controle.getScena("TelaPrincipal"));
+		});
 		
 	}
 
