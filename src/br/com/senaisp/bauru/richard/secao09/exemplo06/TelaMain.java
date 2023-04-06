@@ -17,14 +17,14 @@ public class TelaMain extends Application {
 	 */
 	
 	@Override
-	public void start(Stage arg0) throws Exception {
-		// TODO Auto-generated method stub
-
+	public void start(Stage primeiraStage) throws Exception {
+		
+		
+		
 	}
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		launch(args);
 	}
 
 }
